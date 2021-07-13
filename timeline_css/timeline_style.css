@@ -1,0 +1,139 @@
+/* everything is in same serial as timeline.html */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* 1st div */
+.container{
+    padding: 300px 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    background-color: aliceblue;
+    background: url("../timeline_img/timeline_background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+/* 2nd div */
+
+.timeline{
+    width: 80%;
+    height: auto;
+    max-width: 1150px; /*change this line if paragraph feels too wide*/
+    margin: 200px auto;
+    position: relative; 
+}
+
+/* paragraphs are in a list */
+.timeline ul{
+    list-style: none;
+}
+.timeline ul li{
+    padding: 30px;
+    background-color: #1e1f22;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+}
+.timeline ul li:last-child{
+    margin-bottom: 0;
+}
+.timeline-content h1{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 10 px;
+}
+
+
+.paragraph_img{
+    width:100%;
+    max-width: 350px;
+    height: auto;
+    padding: 30px 0px 30px 0px;
+    border-radius: 15%;
+
+}
+.timeline-content p{
+    font-size: 16px;
+    line-height:  30px;
+    font-weight: 300;
+}
+/* design for desktop */
+@media only screen and (min-width:760px) {
+    .timeline ul li {
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+
+    }
+    
+    /* making odd paragraph go one side */
+    .timeline ul li:nth-child(odd){
+        float:left;
+        clear: right;
+        transform: translateX(-40px);
+        border-radius: 50px 0px 50px 50px;
+    }
+
+    /* making even paragraph go one side */
+    .timeline ul li:nth-child(even){
+        float:right;
+        clear: left;
+        transform: translateX(40px);
+        border-radius: 0 50px 50px 50px;
+    }
+    /* line in middle */
+    .timeline::before{
+        content: '';
+        position:absolute;
+        height: 100%;
+        width: 5px;
+        background-color: rgb(66, 87, 107);
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+    /* circle in Line */
+    .timeline ul li::after{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        
+        background-color: rgb(188, 197, 206);
+        border-radius: 50%;
+        top: 0;
+
+    }
+    /* circle in line for odd paragraph (position) */
+    .timeline ul li:nth-child(odd)::after{
+        
+        transform: translate(50%, -50%);
+        right: -40px;
+
+    }
+    /* circle in line for even paragraph (position) */
+    .timeline ul li:nth-child(even)::after{
+        
+        transform: translate(-50%, -50%);
+        left: -40px;
+
+    }
+    /* circle on line color change after hover */
+    .timeline ul li:hover::after{
+        /* background-color: rgb(188, 197, 206); */
+        background-color: rgb(71, 68, 85);
+    }
+}
+/* design for desktop ends*/
